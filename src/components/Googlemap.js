@@ -19,7 +19,7 @@ const Googlemap = () => {
     // Check if this environment variable is correctly set with your API key
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   });
-  const center = useMemo(() => ({ lat: 18.52043, lng: 73.856743 }), []);
+  const center = useMemo(() => ({ lat: 24.37348833, lng: 54.536335 }), []);
   const [showPopup, setShowPopup] = useState(false);
 
   const togglePopupp = () => {
@@ -76,14 +76,14 @@ const Googlemap = () => {
             </p>
           </div>
         </div> */}
-        <div className="w-[50%] absolute top-32 z-50">
+        <div className="w-[13%] absolute top-32 z-50 ">
           {!showPopup && (
-            <div
-              id="trackingButton"
-              onClick={togglePopupp}
-              className="w-[50%] "
-            >
-              <img className=" ml-4 w-6 h-6" src={right} alt="logo" />
+            <div id="trackingButton" onClick={togglePopupp} className="w-[20%]">
+              <img
+                className=" ml-4 w-6 h-6"
+                src={right}
+                alt="logo"
+              />
             </div>
           )}
         </div>
