@@ -1,0 +1,61 @@
+.container{
+  height: 100vh;
+  width: 100%;
+  /* background-color: red; */
+}
+*{
+  padding: 0;
+  margin: 0;
+
+}
+.linkClass{
+  background-color: rgb(163, 241, 44);
+
+}
+
+/* .gm-style{
+  width: 450px !important;
+height: 20px !important;
+display: hidden;
+position: absolute;
+top: 00px !important;
+/* z-index: -1 !important; */
+
+  /* margin-top: 200px !important;
+  left: 700px !important; */
+
+.nav{
+  background-color: rgb(163, 241, 44);
+}
+.sidebar{
+  width: 100%;
+  height: 40px;
+  display: inline-block;
+  background-color: rgb(163, 241, 44);
+  /* background: linear-gradient(90deg, rgba(0,36,0,1) 0%, rgba(8,242,66,1) 53%, rgba(13,82,36,1) 100%); */
+}
+
+.button{
+  width: 100%;
+  border-bottom: 2px solid grey;
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+}
+
+
+/* .map-container {
+  height: 100%;
+  width: 100%;
+} */
