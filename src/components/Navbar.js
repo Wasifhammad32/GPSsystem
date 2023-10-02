@@ -123,10 +123,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className="sm:block md:hidden w-[5%] flex justify-end items-end pr-4">
-          <img className="w-6 h-6  ml-14 mt-4" src={menu} />
+          <img className="w-6 h-6  ml-14 mt-4" src={menu} alt="logo" />
         </div>
 
-        <div className=" w-[5%] flex justify-end items-end pr-4">
+        <div className=" w-[5%] flex justify-end items-end pr-4 lg:hidden md:hidden">
           {/* Toggle the visibility of the additional div on menu image click */}
           <img
             className="w-6 h-6 ml-14 mt-4 cursor-pointer"

@@ -46,9 +46,9 @@ const Leafletmap = () => {
           }
         `}
       </style>
-      <div className="w-[50%] absolute top-20 z-[999]">
+      <div className="w-[13%] absolute top-20 z-[999]">
         {!showPopup && (
-          <div id="trackingButton" onClick={togglePopupp} className="w-[50%] ">
+          <div id="trackingButton" onClick={togglePopupp} className="w-[20%] ">
             <img className=" ml-4 w-6 h-6" src={right} alt="rigth" />
           </div>
         )}
