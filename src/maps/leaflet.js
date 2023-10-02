@@ -26,7 +26,7 @@
 
 //   return (
 //     <div>
-//       <MapContainer 
+//       <MapContainer
 //         style={{  width: "", height: "100vh" }}
 //         center={[24.37348833, 54.536335]}
 //         zoom={13}
@@ -90,9 +90,9 @@ const Leaflet = () => {
   const polygonCoords = filteredData.map((entry) => [entry.Lat, entry.Lng]);
 
   return (
-    <div className="map-container ">
+    <div className="map-container">
       <MapContainer
-        style={{ position:"", width: "1366px", height: "490px", marginTop: "114px" }}
+        style={{ position: "", width: "100%", height: "100vh" }}
         center={[24.37348833, 54.536335]}
         zoom={13}
         scrollWheelZoom={false}
@@ -129,4 +129,3 @@ const Leaflet = () => {
 };
 
 export default Leaflet;
-

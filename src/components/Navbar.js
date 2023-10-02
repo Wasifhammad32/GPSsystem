@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import user from "../images/user.png";
 import screen from "../images/monitor.png";
 import window from "../images/windows.png";
@@ -8,9 +9,20 @@ import exit from "../images/power.png";
 import menu from "../assets/menu.png";
 
 const Navbar = () => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const location = useLocation();
+
+  // Check if the current location is the login page
+  const isLoginPage = location.pathname === "/login";
+
+  // Render the navbar only if it's not the login page
+  if (isLoginPage) {
+    return null;
+  }
   return (
     <>
-      <div className="w-[100%] lg:h-[70px] top-11  bg-blue-950 text-white flex fixed z-50">
+      <div className="w-[100%] lg:h-[70px]  bg-blue-950 text-white flex sticky">
         <div
           className="md:w-[45%] sm:w-[70%] lg:pt-3 lg:pb-3 md:pt-3 md:pb-3 sm:pt-2 sm:pb-2 sm:ml-1"
           id="left"
@@ -34,7 +46,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        
+
         <div
           className="w-[55%]  flex justify-between lg:pl-4 lg:pr-4 sm:hidden md:inline-flex lg:inline-flex"
           id="right"
@@ -111,11 +123,100 @@ const Navbar = () => {
           </div>
         </div>
         <div className="sm:block md:hidden w-[5%] flex justify-end items-end pr-4">
-          <img className="w-6 h-6  ml-14 mt-4" src={menu}/>
+          <img className="w-6 h-6  ml-14 mt-4" src={menu} />
+        </div>
 
+        <div className=" w-[5%] flex justify-end items-end pr-4">
+          {/* Toggle the visibility of the additional div on menu image click */}
+          <img
+            className="w-6 h-6 ml-14 mt-4 cursor-pointer"
+            src={menu}
+            alt="menu"
+            onClick={() => setMenuOpen(!isMenuOpen)}
+          />
+
+          {/* Additional div that opens/closes based on isMenuOpen state */}
+          {isMenuOpen && (
+            <div className="absolute top-20 w-[96%] left-5 right-5 bg-blue-950 p-4 z-[999]">
+              <div className="w-[25%]   " id="right">
+                <div className="p-2 flex">
+                  <div>
+                    <img
+                      className="lg:w-6 lg:h-6 m-auto md:w-5 md:h-5"
+                      src={screen}
+                      alt="screen"
+                    />
+                  </div>
+                  <p className="lg:text-xs pl-10 text-center md:text-[0.70rem]">
+                    Tracking Maps
+                  </p>
+                </div>
+
+                <div className="p-2 flex">
+                  <div>
+                    <img
+                      className="lg:w-6 lg:h-6 m-auto md:w-5 md:h-5"
+                      src={window}
+                      alt="screen"
+                    />
+                  </div>
+                  <p className="lg:text-xs pl-10 text-center md:text-[0.70rem]">
+                    Multiple Tracking
+                  </p>
+                </div>
+                <div className="p-2 flex">
+                  <div>
+                    <img
+                      className="lg:w-6 lg:h-6 m-auto md:w-5 md:h-5"
+                      src={file}
+                      alt="screen"
+                    />
+                  </div>
+                  <p className="lg:text-xs pl-10 text-center md:text-[0.70rem]">
+                    Information Management
+                  </p>
+                </div>
+                <div className="p-2 flex">
+                  <div>
+                    <img
+                      className="lg:w-6 lg:h-6 m-auto md:w-5 md:h-5"
+                      src={report}
+                      alt="screen"
+                    />
+                  </div>
+                  <p className="lg:text-xs pl-10 text-center md:text-[0.70rem]">
+                    Reports and Charts
+                  </p>
+                </div>
+                <div className="p-2 flex">
+                  <div>
+                    <img
+                      className="lg:w-6 lg:h-6 m-auto md:w-5 md:h-5"
+                      src={user}
+                      alt="screen"
+                    />
+                  </div>
+                  <p className="lg:text-xs pl-10 text-center md:text-[0.70rem]">
+                    User Profile
+                  </p>
+                </div>
+                <div className="p-2 flex">
+                  <div>
+                    <img
+                      className="lg:w-6 lg:h-6 m-auto md:w-5 md:h-5"
+                      src={exit}
+                      alt="screen"
+                    />
+                  </div>
+                  <p className="lg:text-xs pl-10 text-center md:text-[0.70rem]">
+                    Exit
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-   
     </>
   );
 };
