@@ -8,6 +8,9 @@
   margin: 0;
 
 }
+.responseive-screen{
+  z-index: 999px !important;
+}
 .linkClass{
   background-color: rgb(163, 241, 44);
 
