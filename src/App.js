@@ -10,9 +10,9 @@ const App = () => {
       <Router>
         <Layout>
           <Routes>
-            <Route path="/" element={<Googlemap />} />
+            <Route path="/google" element={<Googlemap />} />
             <Route exact path="/leaflet" element={<Leafletmap />} />
-            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/" element={<Login />} />
           </Routes>
         </Layout>
       </Router>
