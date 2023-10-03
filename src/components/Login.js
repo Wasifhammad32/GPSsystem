@@ -10,19 +10,23 @@ const Login = () => {
 
     try {
       // Replace with the URL of your backend login endpoint
-      const apiUrl = "http://localhost:3000/api/login"; // Change the URL accordingly
+      const apiUrl = "http://192.168.10.11:4000/login"; // Change the URL accordingly
 
       const response = await axios.post(apiUrl, {
         email,
         password,
       });
 
-      if (response.status === 200) {
-        // Login successful, handle the response as needed
-        console.log("Login successful:", response.data);
+      if (response.status >= 200 && response.status < 300) {
+        // Successful login, you have the token
+        const token = response.data.token;
+        console.log("Login successful! Token:", token);
       } else {
-        // Handle login failure, show an error message, etc.
-        console.error("Login failed:", response.data.error);
+        // Handle login failure
+        console.error(
+          "Login failed:",
+          response.data.message || "Unknown error"
+        );
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -40,7 +44,7 @@ const Login = () => {
             Sign in here
           </p>
         </div>
-        <form className="mt-8 space-y-6" action="/api/login" method="POST">
+        <form className="mt-8 space-y-6" onSubmit={submitHandler} method="POST">
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm space-y-6">
             <div>
@@ -90,7 +94,6 @@ const Login = () => {
               <button
                 type="submit"
                 className="group relative w-full flex justify-center px-5 py-3 border border-transparent text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                onSubmit={submitHandler}
               >
                 Login
               </button>
@@ -105,7 +108,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <button
               type="button"
               className="w-full flex justify-center items-center gap-x-2 px-5 py-3 border border-gray-300 rounded-full shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -113,16 +116,7 @@ const Login = () => {
               <span className="sr-only">Login with Google</span>
               <p className="text-red-500">Login with Google</p>
             </button>
-          </div>
-          <div>
-            <p className="text-center pt-3 font-medium">
-              Not Have Any account? <br />
-              <a href="/signUp">
-                <span className="text-blue-800 font-medium">SignUp </span>
-              </a>
-              here
-            </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
