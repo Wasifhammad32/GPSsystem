@@ -9,7 +9,8 @@ import Googlemap from "./components/Googlemap";
 import Leafletmap from "./components/Leafletmap";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
-import InfoManagementScreenn from "./InfoManagementScreen";
+import InfoManagementScreen from "./InfoManagementScreen";
+import VehicleTrackingList from "./screens/VehicleTrackingList";
 
 // Function to check if the user is authenticated based on the presence of a token in localStorage
 const isAuthenticated = () => {
@@ -77,7 +78,19 @@ const App = () => {
           element={
             isUserAuthenticated ? (
               <Layout>
-                <InfoManagementScreenn />
+                <InfoManagementScreen />
+              </Layout>
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+        <Route
+          path="/vehicletrackinglist"
+          element={
+            isUserAuthenticated ? (
+              <Layout>
+                <VehicleTrackingList />
               </Layout>
             ) : (
               <Navigate to="/" />

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLoadScript, GoogleMap } from "@react-google-maps/api";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
 import "../App.css";
 import setting from "../assets/settings.png";
 import alarm from "../assets/alarm.png";
@@ -79,11 +78,7 @@ const Googlemap = () => {
         <div className="w-[13%] absolute top-32 z-50 ">
           {!showPopup && (
             <div id="trackingButton" onClick={togglePopupp} className="w-[20%]">
-              <img
-                className=" ml-4 w-6 h-6"
-                src={right}
-                alt="logo"
-              />
+              <img className=" ml-4 w-6 h-6" src={right} alt="logo" />
             </div>
           )}
         </div>
