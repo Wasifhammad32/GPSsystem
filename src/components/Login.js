@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
       // Replace with the URL of your backend login endpoint
-      const apiUrl = "http://192.168.10.11:4000/login"; // Change the URL accordingly
+      const apiUrl = "http://192.168.10.6:4000/login"; // Change the URL accordingly
 
       const response = await axios.post(apiUrl, {
         email,
@@ -18,9 +20,11 @@ const Login = () => {
       });
 
       if (response.status >= 200 && response.status < 300) {
-        // Successful login, you have the token
         const token = response.data.token;
-        console.log("Login successful! Token:", token);
+        localStorage.setItem("token", token);
+
+        console.log("Navigating to /google");
+        navigate("/google");
       } else {
         // Handle login failure
         console.error(
@@ -90,14 +94,12 @@ const Login = () => {
           </div>
 
           <div>
-            <a href="/dashboardLayout/dashboard">
-              <button
-                type="submit"
-                className="group relative w-full flex justify-center px-5 py-3 border border-transparent text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Login
-              </button>
-            </a>
+            <button
+              type="submit"
+              className="group relative w-full flex justify-center px-5 py-3 border border-transparent text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Login
+            </button>
           </div>
         </form>
 
