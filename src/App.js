@@ -9,6 +9,7 @@ import Googlemap from "./components/Googlemap";
 import Leafletmap from "./components/Leafletmap";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
+import InfoManagementScreenn from "./InfoManagementScreen";
 
 // Function to check if the user is authenticated based on the presence of a token in localStorage
 const isAuthenticated = () => {
@@ -65,6 +66,18 @@ const App = () => {
             isUserAuthenticated ? (
               <Layout>
                 <Leafletmap />
+              </Layout>
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+        <Route
+          path="/info"
+          element={
+            isUserAuthenticated ? (
+              <Layout>
+                <InfoManagementScreenn />
               </Layout>
             ) : (
               <Navigate to="/" />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import user from "../images/user.png";
 import screen from "../images/monitor.png";
 import close from "../images/pngtree-icon-close-button-png-image_1357822.jpg";
@@ -76,6 +76,21 @@ const Navbar = () => {
               Multiple <br /> Tracking
             </p>
           </div>
+
+          <div className="p-2">
+            <Link to="/info">
+              <div>
+                <img
+                  className="lg:w-6 lg:h-6 m-auto md:w-5 md:h-5"
+                  src={file}
+                  alt="screen"
+                />
+              </div>
+              <p className="lg:text-xs text-center md:text-[0.70rem]">
+                Information <br /> Management
+              </p>
+            </Link>
+
           <div className="p-2 clear-left  smd:hidden md:block">
             <div >
               <img
@@ -87,6 +102,7 @@ const Navbar = () => {
             <p className="lg:text-xs text-center md:text-[0.70rem]">
               Information <br /> Management
             </p>
+
           </div>
           <div className="p-2">
             <div>
